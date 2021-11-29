@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Zen+Kurenaido&display=swap");
+
+/**********
+  GLOBAL
+***********/
+html {
+  font-size: 62.5%; /* 16px x 62.5% = 10px = 1rem */
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+  /* overscroll-behavior-x: none; */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-size: 1.6rem;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Zen Kurenaido", sans-serif;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+/**********
+  CLASSES
+***********/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row.center {
+  justify-content: center;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* IMAGES */
+img.medium {
+  max-width: 100%;
+  width: 35rem;
+}
+
+/* CARD */
+.card {
+  border: 0.1rem #eee solid;
+  margin: 1.5rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body > * {
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2rem;
+}
+
+/* RATING */
+.rating span {
+  color: #000;
+  margin: 0.1rem;
+}
+
+/**********
+  LAYOUT
+***********/
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "announcement"
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 3rem 10rem 5rem 1fr 5rem;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+nav {
+  grid-area: nav;
+  border-bottom: 1px solid #eee;
+  padding: 0 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main {
+  grid-area: main;
+  padding: 1rem;
+}
+
+footer {
+  grid-area: footer;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+/*********
+  HEADER
+**********/
+.announcement {
+  grid-area: announcement;
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header a {
+  color: #000;
+}
+
+.dashboard {
+  height: 100%;
+  margin: 0 10rem;
+}
+
+a.brand {
+  font-size: 3rem;
+  /* font-family: "Zen Kurenaido", sans-serif; */
+}
+
+/*********
+  NAVBAR
+**********/
+nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+}
+
+.navlinks > li {
+  padding: 0 2rem 0 0;
+}
+
+/*********
+  MAIN
+**********/
+/* SLIDER */
+.slider img {
+  width: 95vw;
+  height: 80rem;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/*********
+  FOOTER
+**********/
+
+/*********
+  M.QUERY
+**********/
