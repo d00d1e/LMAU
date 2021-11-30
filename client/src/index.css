@@ -10,8 +10,8 @@
 html {
   font-size: 62.5%; /* 16px x 62.5% = 10px = 1rem */
   box-sizing: border-box;
-  /* overflow-x: hidden; */
-  /* overscroll-behavior-x: none; */
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 body {
@@ -31,7 +31,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.1rem;
+  font-size: 1.6rem;
   padding: 0 0 1rem 0;
   margin: 0;
 }
@@ -64,30 +64,6 @@ a:hover {
 img.medium {
   max-width: 100%;
   width: 35rem;
-}
-
-/* CARD */
-.card {
-  border: 0.1rem #eee solid;
-  margin: 1.5rem;
-}
-
-.card-body {
-  padding: 1.5rem;
-}
-
-.card-body > * {
-  margin-bottom: 0.5rem;
-}
-
-.price {
-  font-size: 2rem;
-}
-
-/* RATING */
-.rating span {
-  color: #000;
-  margin: 0.1rem;
 }
 
 /**********

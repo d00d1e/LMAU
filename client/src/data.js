@@ -8,6 +8,8 @@ const data = {
         "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Created by us, styled by you.",
       price: "20",
       sizes: ["S", "L"],
+      rating: 4.5,
+      numReviews: 15,
       featured: true,
     },
     {
@@ -18,6 +20,8 @@ const data = {
         "Limited edition mossy green shiny faux fur for the Grinchiest Grinch of all the Grinches. Christmas is coming!",
       price: "75",
       sizes: ["S", "M", "L"],
+      rating: 4.5,
+      numReviews: 23,
       featured: false,
     },
     {
@@ -28,6 +32,8 @@ const data = {
         "Black Bad Ass Hoodie. Cotton 95% / spandex 5%. Light and stretchy for those chilly nights!",
       price: "19",
       sizes: ["S", "M", "L", "XL"],
+      rating: 4.1,
+      numReviews: 71,
       featured: false,
     },
     {
@@ -38,6 +44,8 @@ const data = {
         "This sweater is perfect for the lively tuna fish-lovers in your home, equipped with a stretchy waist to support their activities. It comes with a smile on your face and a securely sewn-in button in the neck to describe your kitty's deepest desires.",
       price: "35",
       sizes: ["XS", "S", "M", "L"],
+      rating: 4.7,
+      numReviews: 55,
       featured: false,
     },
     {
@@ -48,6 +56,8 @@ const data = {
         "You'll barely feel the frost when you're wearing the Dark Lord's winter coat. Designed with a high neck and fur lined hood to really lock in heat, it's a must come cold days. Roll on winter.",
       price: "80",
       sizes: ["M", "L"],
+      rating: 4.1,
+      numReviews: 54,
       featured: false,
     },
     {
@@ -58,6 +68,8 @@ const data = {
         "The Grey Wolf has a true lust for life and feels fulfilled when conquering challenges. This Spirit often has much to teach those around them and naturally assumes the role of a silent leader. A Grey Wolf will always fight for what is right. 10% of net profits donated to help endangered species.",
       price: "50",
       sizes: ["S", "M"],
+      rating: 4.8,
+      numReviews: 64,
       featured: true,
     },
     {
@@ -68,6 +80,8 @@ const data = {
         "This beautiful and comfortable sweater is hand knitted. It is hand/machine washable (mohair function, 30 degrees C/ 86 F). Yarn is 75% mohair and 25% polyamide.",
       price: "35",
       sizes: ["XS", "M", "L"],
+      rating: 4.5,
+      numReviews: 30,
       featured: false,
     },
     {
@@ -78,6 +92,8 @@ const data = {
         "Custom hand tailored tuxedo, perfect for those special occassions. A truly classic piece that can be worn for years to come.",
       price: "30",
       sizes: ["M"],
+      rating: 3.5,
+      numReviews: 34,
       featured: false,
     },
     {
@@ -88,6 +104,8 @@ const data = {
         "This piece is sure to keep you layered up and looking good throughout the weather event that is everyday life and also for days you just dont wanna.",
       price: "25",
       sizes: ["S", "M", "XL"],
+      rating: 4.3,
+      numReviews: 47,
       featured: false,
     },
     {
@@ -98,6 +116,8 @@ const data = {
         "TMNT inspired ribbed sweater featuring a ribbed rolled neck, a relaxed fit and fine knit.",
       price: "35",
       sizes: ["M", "L", "XL"],
+      rating: 4.1,
+      numReviews: 34,
       featured: false,
     },
     {
@@ -108,6 +128,8 @@ const data = {
         "This one's for all the dinosaur lovers out there!. Gain instant leopard dino vibes while stomping around and staying warm. ",
       price: "40",
       sizes: ["L"],
+      rating: 4.0,
+      numReviews: 87,
       featured: false,
     },
     {
@@ -118,6 +140,8 @@ const data = {
         "Soft and sleek pullover vest made with 100% real panther fur for those extra chilly days. Made in honor of Chadwich 'T'Challa' Boseman. Wakanda Furever!",
       price: "50",
       sizes: ["S", "M", "L"],
+      rating: 4.9,
+      numReviews: 120,
       featured: true,
     },
   ],

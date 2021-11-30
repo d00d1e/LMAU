@@ -1,0 +1,17 @@
+/* CARD */
+.card {
+  border: 0.1rem #eee solid;
+  margin: 1.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body > * {
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2rem;
+}
