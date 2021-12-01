@@ -59,7 +59,6 @@ export default function Rating({ rating, numReviews }) {
           }
         ></i>
       </span>
-      <span> {numReviews} reviews</span>
     </div>
   );
 }
