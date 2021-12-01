@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Zen+Kurenaido&display=swap");
 
 /**********
-  GLOBAL
+  RESETS
 ***********/
 #root {
   height: 100%;
@@ -25,6 +25,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/**********
+  GLOBAL
+***********/
+/* HEADINGS */
 h1 {
   font-size: 2.2rem;
   padding: 1rem 0;
@@ -34,20 +38,6 @@ h2 {
   font-size: 1.6rem;
   padding: 0 0 1rem 0;
   margin: 0;
-}
-
-/**********
-  CLASSES
-***********/
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.row.center {
-  justify-content: center;
 }
 
 /* LINKS */
@@ -66,112 +56,14 @@ img.medium {
   width: 35rem;
 }
 
-/**********
-  LAYOUT
-***********/
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "announcement"
-    "header"
-    "nav"
-    "main"
-    "footer";
-  grid-template-columns: 1fr;
-  grid-template-rows: 3rem 10rem 5rem 1fr 5rem;
-  min-height: 100vh;
-}
-
-header {
-  grid-area: header;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-nav {
-  grid-area: nav;
-  border-bottom: 1px solid #eee;
-  padding: 0 15rem;
+/* CLASSES */
+.row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
-main {
-  grid-area: main;
-  padding: 1rem;
-}
-
-footer {
-  grid-area: footer;
-  padding: 1rem;
-  text-align: center;
-  border-top: 1px solid #eee;
-}
-
-/*********
-  HEADER
-**********/
-.announcement {
-  grid-area: announcement;
-  background-color: #000;
-  color: #fff;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
+.row.center {
   justify-content: center;
 }
-
-header a {
-  color: #000;
-}
-
-.dashboard {
-  height: 100%;
-  margin: 0 10rem;
-}
-
-a.brand {
-  font-size: 3rem;
-  /* font-family: "Zen Kurenaido", sans-serif; */
-}
-
-/*********
-  NAVBAR
-**********/
-nav > ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  list-style: none;
-  padding: 0;
-}
-
-.userlinks > a {
-  padding: 0 2rem 0 0;
-}
-
-.navlinks > li {
-  padding: 0 2rem 0 0;
-}
-
-/*********
-  MAIN
-**********/
-/* SLIDER */
-.slider img {
-  width: 95vw;
-  height: 80rem;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
-
-/*********
-  FOOTER
-**********/
-
-/*********
-  M.QUERY
-**********/

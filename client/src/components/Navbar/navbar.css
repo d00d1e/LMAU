@@ -1,0 +1,21 @@
+nav {
+  grid-area: nav;
+  border-top: 1px solid #c8c8c8;
+  border-bottom: 1px solid #c8c8c8;
+  padding: 0 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+}
+
+.navlinks > li {
+  padding: 0 2rem 0 0;
+}

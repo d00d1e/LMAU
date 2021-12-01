@@ -1,0 +1,14 @@
+.slider img {
+  width: 95%;
+  height: 60rem;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.slider__heading {
+  font-size: 2rem;
+  text-align: center;
+  padding: 0.5rem 0;
+  /* text-transform: uppercase; */
+}
