@@ -1,0 +1,32 @@
+{
+  "name": "lmau",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch server --exec node --experimental-modules server/index.js",
+    "server": "cd server && nodemon index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d00d1e/LMAU.git"
+  },
+  "keywords": [],
+  "author": "jLee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d00d1e/LMAU/issues"
+  },
+  "homepage": "https://github.com/d00d1e/LMAU#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15"
+  }
+}
