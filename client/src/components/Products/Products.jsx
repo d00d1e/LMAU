@@ -1,14 +1,25 @@
-import React from "react";
-import Product from "../Product/Product";
-import data from "../../data";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Product } from "..";
 import "./products.css";
 
 export default function Products() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get("/api/products");
+
+      setProducts(data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
-      <h1 className="products__header">Shop Collections</h1>
+      <h1 className="products__header">Shop Products</h1>
       <div className="row center">
-        {data.products.map((product) => (
+        {products.map((product) => (
           <Product key={product._id} product={product} />
         ))}
       </div>

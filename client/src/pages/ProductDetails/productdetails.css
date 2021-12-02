@@ -50,12 +50,12 @@
 }
 
 /* PRICE */
-.price {
+.details__price {
   font-size: 4rem;
   margin: 2rem 0;
 }
 
-.price sup {
+.details__price sup {
   font-size: 2rem;
 }
 

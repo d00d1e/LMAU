@@ -31,7 +31,7 @@ export default function ProductDetails({ props }) {
           />
         </div>
         <div className="details__description">
-          <p className="price">
+          <p className="details__price">
             ${product.price} <sup>USD</sup>
           </p>
           <p className="in-stock">
