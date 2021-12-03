@@ -9,7 +9,7 @@ export default function Product({ product }) {
       <Link to={`/products/${product._id}`}>
         <img
           className="medium"
-          src={require(`../../assets/img/products/${product.image}`).default}
+          src={require(`../../assets/img/products/${product.image}`)}
           alt={product.title}
         />
       </Link>

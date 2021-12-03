@@ -1,12 +1,16 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
-import { productListReducer } from "./reducers/productReducers";
+import {
+  productDetailsReducer,
+  productListReducer,
+} from "./reducers/productReducers";
 
 const initialState = {};
 
 // introduce reducers to store
 const reducer = combineReducers({
   productList: productListReducer,
+  productDetails: productDetailsReducer,
 });
 
 // connect app to store (see contents of state in redux devtools)
