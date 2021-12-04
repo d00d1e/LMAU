@@ -1,20 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Rating } from "../../components";
 import { detailsProduct } from "../../redux/actions/productActions";
 import "./productdetails.css";
 
 export default function ProductDetails() {
+  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
   );
-  const { id } = useParams();
+  const { id: productId } = useParams();
 
   useEffect(() => {
-    dispatch(detailsProduct(id));
-  }, [dispatch, id]);
+    dispatch(detailsProduct(productId));
+  }, [dispatch, productId]);
+
+  const handleAddToCart = () => {
+    navigate(`/cart/${productId}?qty=${qty}&size=${size}`);
+  };
 
   return (
     <>
@@ -56,31 +63,73 @@ export default function ProductDetails() {
                 )}
               </p>
               <p>{product.description}</p>
-              <div className="select-container">
-                Quantity:
-                <select name="quantity" id="quantity">
-                  <option value="">Choose quantity</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-              <div className="select-container">
-                Size:
-                <select name="size" id="size">
-                  <option value="">Choose size</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-              <button type="sumbit" className="block">
-                ADD TO CART
-              </button>
+              {product.countInStock > 0 ? (
+                <>
+                  <div className="select-container">
+                    <label fors="quantity">Quantity:</label>
+                    <select
+                      name="quantity"
+                      id="quantity"
+                      value={qty}
+                      onChange={(e) => setQty(e.target.value)}
+                      required
+                    >
+                      <option value="">Choose quantity</option>
+                      {[...Array(product.countInStock).keys()].map((x, i) => (
+                        <option key={i} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="select-container">
+                    <label fors="size">Size:</label>
+                    <select
+                      name="size"
+                      id="size"
+                      value={size}
+                      onChange={(e) => setSize(e.target.value)}
+                      required
+                    >
+                      <option value="">Choose Size</option>
+                      {product.sizes.map((x, i) => (
+                        <option key={i} value={x}>
+                          {x}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="select-container">
+                    <label fors="quantity">Quantity:</label>
+                    <select name="quantity" id="quantity" disabled>
+                      <option value="">Out Of Stock</option>
+                    </select>
+                  </div>
+                  <div className="select-container">
+                    <label fors="quantity">Size:</label>
+                    <select name="size" id="size" disabled>
+                      <option value="">Out Of Stock</option>
+                    </select>
+                  </div>
+                </>
+              )}
+
+              {product.countInStock > 0 ? (
+                <button
+                  type="sumbit"
+                  className="block"
+                  onClick={handleAddToCart}
+                >
+                  ADD TO CART
+                </button>
+              ) : (
+                <button type="sumbit" className="block disabled" disabled>
+                  OUT OF STOCK
+                </button>
+              )}
             </div>
           </div>
         </div>

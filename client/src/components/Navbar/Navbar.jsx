@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 export default function Navbar() {
@@ -6,16 +7,16 @@ export default function Navbar() {
     <nav>
       <ul className="navlinks">
         <li>
-          <a href="product.html">Sweaters</a>
+          <Link to="product.html">Sweaters</Link>
         </li>
         <li>
-          <a href="product.html">T-shirts</a>
+          <Link to="product.html">T-shirts</Link>
         </li>
         <li>
-          <a href="product.html">Loungewear</a>
+          <Link to="product.html">Loungewear</Link>
         </li>
         <li>
-          <a href="product.html">Accessories</a>
+          <Link to="product.html">Accessories</Link>
         </li>
       </ul>
     </nav>

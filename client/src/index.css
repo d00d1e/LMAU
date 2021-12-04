@@ -66,14 +66,31 @@ img.large {
   object-fit: contain; */
 }
 
-/* BUTTON */
+/* BUTTON, INPUT, SELECT, TEXTAREA */
+input,
+select,
+textarea,
+button {
+  cursor: pointer;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border: 0.1rem solid #404040;
+}
+
+select {
+  padding: 5px;
+  width: 15rem;
+}
+
 button {
   font-size: 1.6rem;
   background-color: #000;
   color: #fff;
-  padding: 1.2rem;
+  padding: 1.4rem;
   outline: none;
-  cursor: pointer;
 }
 
 button.block {

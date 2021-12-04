@@ -9,10 +9,30 @@ header a {
 }
 
 a.brand {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  font-weight: bold;
   /* font-family: "Zen Kurenaido", sans-serif; */
 }
 
 .userlinks > a {
+  position: relative;
   padding: 0 2rem;
+  font-size: 1.7rem;
+}
+
+.badge {
+  position: absolute;
+  display: block;
+  right: 0.6rem;
+  top: -1.1rem;
+  background-color: #186dbd;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0 auto;
+  line-height: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
 }

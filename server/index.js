@@ -1,4 +1,4 @@
-import express from "express";
+import express, { application } from "express";
 import dotenv from "dotenv";
 
 import data from "./data.js";

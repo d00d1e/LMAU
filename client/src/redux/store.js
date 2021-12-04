@@ -4,13 +4,21 @@ import {
   productDetailsReducer,
   productListReducer,
 } from "./reducers/productReducers";
+import { cartReducer } from "./reducers/cartReducers";
 
-const initialState = {};
+const initialState = {
+  cart: {
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
+  },
+};
 
 // introduce reducers to store
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
+  cart: cartReducer,
 });
 
 // connect app to store (see contents of state in redux devtools)
