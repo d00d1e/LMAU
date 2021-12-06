@@ -7,6 +7,12 @@
   height: 100%;
 }
 
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
 html {
   font-size: 62.5%; /* 16px x 62.5% = 10px = 1rem */
   box-sizing: border-box;
@@ -15,15 +21,17 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
   font-size: 1.6rem;
   /* font-family: "Open Sans", sans-serif; */
   font-family: "Zen Kurenaido", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 4.5rem;
+
+  border: 1px solid red;
 }
 
 /**********
@@ -53,11 +61,17 @@ a:hover {
 
 /* IMAGES */
 img {
-  max-width: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+
+img.small {
+  max-width: 10rem;
+  object-fit: cover;
 }
 
 img.medium {
-  width: 35rem;
+  max-width: 35rem;
   object-fit: cover;
 }
 
@@ -82,19 +96,45 @@ textarea:hover {
 
 select {
   padding: 5px;
-  width: 15rem;
+  width: 13rem;
 }
 
 button {
   font-size: 1.6rem;
   background-color: #000;
   color: #fff;
-  padding: 1.4rem;
+  padding: 1.2rem;
   outline: none;
+  border: none;
+  transition: all 0.4s ease;
+}
+
+button:disabled {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 button.block {
   width: 100%;
+}
+
+button.remove {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #000;
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* CLASSES */

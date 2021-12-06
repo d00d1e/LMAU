@@ -75,8 +75,8 @@ export default function ProductDetails() {
                       required
                     >
                       <option value="">Choose quantity</option>
-                      {[...Array(product.countInStock).keys()].map((x, i) => (
-                        <option key={i} value={x + 1}>
+                      {[...Array(product.countInStock).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
                           {x + 1}
                         </option>
                       ))}
@@ -92,9 +92,9 @@ export default function ProductDetails() {
                       required
                     >
                       <option value="">Choose Size</option>
-                      {product.sizes.map((x, i) => (
-                        <option key={i} value={x}>
-                          {x}
+                      {product.sizes.map((size) => (
+                        <option key={size} value={size}>
+                          {size}
                         </option>
                       ))}
                     </select>
