@@ -30,8 +30,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-bottom: 4.5rem;
-
-  border: 1px solid red;
 }
 
 /**********
@@ -57,6 +55,17 @@ a {
 
 a:hover {
   cursor: pointer;
+}
+
+a.button {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.6rem;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
 }
 
 /* IMAGES */
@@ -130,11 +139,6 @@ button.remove {
   font-size: 1.3rem;
   font-weight: bold;
   text-decoration: underline;
-}
-
-button a {
-  color: #fff;
-  text-decoration: none;
 }
 
 /* CLASSES */

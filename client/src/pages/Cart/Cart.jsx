@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
-import { addToCart } from "../../redux/actions/cartActions";
+import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
 import "./cart.css";
 
 export default function Cart() {
@@ -24,7 +24,8 @@ export default function Cart() {
   }, [dispatch, productId, qty, size]);
 
   const handleRemoveFromCart = (id) => {
-    // TODO: delete action
+    dispatch(removeFromCart(id));
+    navigate("/cart");
   };
 
   const handleCheckout = () => {
@@ -62,7 +63,7 @@ export default function Cart() {
                         value={i.qty}
                         onChange={(e) =>
                           dispatch(
-                            addToCart(i.product, Number(e.target.value, i.size))
+                            addToCart(i.product, Number(e.target.value), i.size)
                           )
                         }
                       >
@@ -86,7 +87,7 @@ export default function Cart() {
                       <button
                         className="remove"
                         type="button"
-                        onClick={handleRemoveFromCart(i.product)}
+                        onClick={() => handleRemoveFromCart(i.product)}
                       >
                         REMOVE
                       </button>
@@ -102,9 +103,9 @@ export default function Cart() {
               Nothing's here yet! Explore our most popular categories like{" "}
               <Link to="/">T-Shirts</Link> or <Link to="/">Accessories</Link>
             </p>
-            <button type="button">
-              <Link to="/">SHOP ALL ITEMS</Link>
-            </button>
+            <Link to="/" className="button">
+              SHOP ALL ITEMS
+            </Link>
           </>
         )}
       </div>
@@ -125,7 +126,7 @@ export default function Cart() {
         <div className="taxes">
           <p>TAXES</p>
           <p>
-            {cartItems
+            {cartItems.reduce((a, c) => a + c.qty, 0)
               ? `$${(
                   cartItems.reduce((a, c) => a + c.price * c.qty, 0) * 0.05
                 ).toFixed(2)}`
@@ -134,13 +135,13 @@ export default function Cart() {
         </div>
         <div className="shipping">
           <p>SHIPPING </p>
-          <p>{cartItems ? "$5.00" : "--"}</p>
+          <p>{cartItems.reduce((a, c) => a + c.qty, 0) ? "$5.00" : "--"}</p>
         </div>
         <hr />
         <div className="total">
           <p>TOTAL</p>
           <p>
-            {cartItems
+            {cartItems.reduce((a, c) => a + c.qty, 0)
               ? `$
               ${(
                 cartItems.reduce((a, c) => a + c.price * c.qty, 0) +

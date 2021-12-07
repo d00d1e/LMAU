@@ -78,10 +78,6 @@ ul.cart-items-list {
   align-items: flex-end;
 }
 
-.cart-links a {
-  text-decoration: underline;
-}
-
 .cart-items button {
   text-decoration: none;
 }
