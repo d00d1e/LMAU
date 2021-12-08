@@ -1,15 +1,23 @@
-import express, { application } from "express";
+import express from "express";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
-
+import userRouters from "./routers/userRouter.js";
 import data from "./data.js";
 
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // DATABASE
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("DB Connection Successful!"))
+  .catch((error) => console.error("Error connecting to Mongo- ", error));
 
 // ROUTES
 app.get("/", (req, res) => {
@@ -28,6 +36,14 @@ app.get("/api/products/:id", (req, res) => {
   }
 });
 
+app.use("/api/users", userRouters);
+
+// ERROR HANDLER
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
+
+// LISTENER
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);
