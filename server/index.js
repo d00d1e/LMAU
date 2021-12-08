@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouters from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
+import authRouter from "./routers/authRouter.js";
 
 dotenv.config({ path: "../.env" });
 
@@ -17,14 +18,15 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("DB Connection Successful!"))
-  .catch((error) => console.error("Error connecting to Mongo- ", error));
+  .catch((error) => console.error("Error connecting to MongoDB- ", error));
 
 // ROUTES
+app.use("/api/auth", authRouter);
 app.use("/api/users", userRouters);
 app.use("/api/products", productRouter);
 
 app.get("/", (req, res) => {
-  res.send("LMAU server");
+  res.send("lmeow");
 });
 
 // ERROR HANDLER
