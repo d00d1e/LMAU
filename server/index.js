@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouters from "./routers/userRouter.js";
-import data from "./data.js";
+import productRouter from "./routers/productRouter.js";
 
 dotenv.config({ path: "../.env" });
 
@@ -20,23 +20,12 @@ mongoose
   .catch((error) => console.error("Error connecting to Mongo- ", error));
 
 // ROUTES
-app.get("/", (req, res) => {
-  res.send("server");
-});
-app.get("/api/products", (req, res) => {
-  res.send(data.products);
-});
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find((i) => i._id === req.params.id);
-
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "Product Not Found" });
-  }
-});
-
 app.use("/api/users", userRouters);
+app.use("/api/products", productRouter);
+
+app.get("/", (req, res) => {
+  res.send("LMAU server");
+});
 
 // ERROR HANDLER
 app.use((err, req, res, next) => {

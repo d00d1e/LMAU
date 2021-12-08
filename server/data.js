@@ -17,7 +17,6 @@ const data = {
   ],
   products: [
     {
-      _id: "1",
       title: "Preppy Fleece Sweater",
       image: "plaid-fleece.jpg",
       description:
@@ -25,12 +24,12 @@ const data = {
       price: "20",
       sizes: ["S", "L"],
       countInStock: 15,
+      category: "sweaters",
       rating: 4.5,
       numReviews: 15,
       featured: true,
     },
     {
-      _id: "2",
       title: "The Grinch Vest",
       image: "grinch-fur.jpg",
       description:
@@ -38,12 +37,12 @@ const data = {
       price: "75",
       sizes: ["S", "M", "L"],
       countInStock: 0,
+      category: "furs",
       rating: 4.5,
       numReviews: 23,
       featured: false,
     },
     {
-      _id: "3",
       title: "Bad Ass Hoodie",
       image: "badass-hoodie.jpg",
       description:
@@ -51,12 +50,12 @@ const data = {
       price: "19",
       sizes: ["S", "M", "L", "XL"],
       countInStock: 20,
+      category: "hoodies",
       rating: 4.1,
       numReviews: 71,
       featured: false,
     },
     {
-      _id: "4",
       title: "Blue Knit Sweater",
       image: "blue-knit.jpg",
       description:
@@ -64,12 +63,12 @@ const data = {
       price: "35",
       sizes: ["XS", "S", "M", "L"],
       countInStock: 30,
+      category: "sweater",
       rating: 4.7,
       numReviews: 55,
       featured: false,
     },
     {
-      _id: "5",
       title: "Dark Lord Winter Coat",
       image: "winter-sweater.jpg",
       description:
@@ -77,12 +76,12 @@ const data = {
       price: "80",
       sizes: ["M", "L"],
       countInStock: 4,
+      category: "coats",
       rating: 4.1,
       numReviews: 54,
       featured: false,
     },
     {
-      _id: "6",
       title: "The Wolf Vest",
       image: "fur.jpg",
       description:
@@ -90,12 +89,12 @@ const data = {
       price: "50",
       sizes: ["S", "M"],
       countInStock: 7,
+      category: "furs",
       rating: 4.8,
       numReviews: 64,
       featured: true,
     },
     {
-      _id: "7",
       title: "Minimalist Mohair Sweater",
       image: "tan-sweater.jpg",
       description:
@@ -103,12 +102,12 @@ const data = {
       price: "35",
       sizes: ["XS", "M", "L"],
       countInStock: 12,
+      category: "sweaters",
       rating: 4.5,
       numReviews: 30,
       featured: false,
     },
     {
-      _id: "8",
       title: "Tuxedo Knight Sweater",
       image: "tuxedo-sweater.jpg",
       description:
@@ -116,12 +115,12 @@ const data = {
       price: "30",
       sizes: ["M"],
       countInStock: 23,
+      category: "sweaters",
       rating: 3.5,
       numReviews: 34,
       featured: false,
     },
     {
-      _id: "9",
       title: "No, Nope, Never Fleece",
       image: "nope-fleece.jpg",
       description:
@@ -129,12 +128,12 @@ const data = {
       price: "25",
       sizes: ["S", "M", "XL"],
       countInStock: 19,
+      category: "fleece",
       rating: 4.3,
       numReviews: 47,
       featured: false,
     },
     {
-      _id: "10",
       title: "Turtle Style Sweater",
       image: "turtleneck.jpg",
       description:
@@ -142,12 +141,12 @@ const data = {
       price: "35",
       sizes: ["M", "L", "XL"],
       countInStock: 11,
+      category: "sweater",
       rating: 4.1,
       numReviews: 34,
       featured: false,
     },
     {
-      _id: "11",
       title: "Rwar Shirt",
       image: "dino-shirt.jpg",
       description:
@@ -155,12 +154,12 @@ const data = {
       price: "40",
       sizes: ["L"],
       countInStock: 10,
+      category: "tshirts",
       rating: 4.0,
       numReviews: 87,
       featured: false,
     },
     {
-      _id: "12",
       title: "Black Panther",
       image: "blackfur-vest.jpg",
       description:
@@ -168,6 +167,7 @@ const data = {
       price: "50",
       sizes: ["S", "M", "L"],
       countInStock: 5,
+      category: "furs",
       rating: 4.9,
       numReviews: 120,
       featured: true,
