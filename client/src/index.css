@@ -100,7 +100,7 @@ button {
 input:hover,
 select:hover,
 textarea:hover {
-  border: 0.1rem solid #404040;
+  border: 0.2rem solid darkgrey;
 }
 
 select {
@@ -115,7 +115,7 @@ button {
   padding: 1.2rem;
   outline: none;
   border: none;
-  transition: all 0.4s ease;
+  border-radius: 2px;
 }
 
 button:disabled {
@@ -130,7 +130,7 @@ button.block {
   width: 100%;
 }
 
-button.remove {
+button.inline {
   background-color: transparent;
   border: none;
   outline: none;
@@ -139,6 +139,13 @@ button.remove {
   font-size: 1.3rem;
   font-weight: bold;
   text-decoration: underline;
+}
+
+button.center {
+  margin: 2rem auto;
+  min-width: 30%;
+  padding: 15px;
+  font-size: 16px;
 }
 
 /* CLASSES */

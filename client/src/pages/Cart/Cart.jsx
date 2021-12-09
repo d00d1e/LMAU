@@ -29,7 +29,7 @@ export default function Cart() {
   };
 
   const handleCheckout = () => {
-    navigate(`/signin?redirect=/shipping`);
+    navigate(`/login?redirect=/shipping`);
   };
 
   return (
@@ -85,7 +85,7 @@ export default function Cart() {
                     <div className="cart-item-actions">
                       ${i.price}
                       <button
-                        className="remove"
+                        className="inline"
                         type="button"
                         onClick={() => handleRemoveFromCart(i.product)}
                       >
