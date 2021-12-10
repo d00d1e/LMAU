@@ -22,7 +22,7 @@ export default function Login() {
     }
   }, [userInfo, navigate, redirect]);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     dispatch(signin(email, password));
   };
@@ -34,7 +34,7 @@ export default function Login() {
         {error && (
           <span className="error login-error">Invalid email or password!</span>
         )}
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleLogin}>
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -56,7 +56,8 @@ export default function Login() {
             LOGIN
           </button>
           <span>
-            New to LMAU? &nbsp; <Link to="/register">Register</Link>
+            New to LMAU? &nbsp;
+            <Link to={`/register?redirect=${redirect}`}>Register</Link>
           </span>
         </form>
       </div>

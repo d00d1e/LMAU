@@ -24,5 +24,20 @@ export const loginUser = expressAsyncHandler(async (req, res) => {
 
 // REGISTER
 export const registerUser = expressAsyncHandler(async (req, res) => {
-  // TODO: register user
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+    const newUser = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword,
+    });
+
+    const createdUser = await newUser.save();
+    res.status(201).send(createdUser);
+  }
+
+  res.status(303).send({ message: "User with that email already exists" });
 });
