@@ -1,20 +1,39 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { signin } from "../../redux/actions/userActions";
 import "./login.css";
 
 export default function Login() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectInUrl ? redirectInUrl : "/";
+
+  const { userInfo, error } = useSelector((state) => state.userSignin);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [userInfo, navigate, redirect]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //TODO: login action
+    dispatch(signin(email, password));
   };
 
   return (
     <div className="login-container">
       <div className="login-wrapper">
         <h1>ACCOUNT LOGIN</h1>
+        {error && (
+          <span className="error login-error">Invalid email or password!</span>
+        )}
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input

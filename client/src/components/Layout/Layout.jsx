@@ -1,5 +1,6 @@
 import React from "react";
 import { Announcement, Footer, Header, Navbar } from "..";
+import "./layout.css";
 
 export default function Layout({ children }) {
   return (

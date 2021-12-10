@@ -10,7 +10,7 @@ export default function Navbar() {
           <Link to="product.html">Sweaters</Link>
         </li>
         <li>
-          <Link to="product.html">T-shirts</Link>
+          <Link to="product.html">Tshirts</Link>
         </li>
         <li>
           <Link to="product.html">Loungewear</Link>

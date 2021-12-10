@@ -7,11 +7,10 @@
     "main"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 3rem 5rem 5rem 1fr auto;
-  min-height: 100vh;
+  grid-template-rows: 3rem 8rem 5rem 2fr 5rem;
 }
 
 main {
   grid-area: main;
-  padding: 1rem;
+  min-height: 100vh;
 }
