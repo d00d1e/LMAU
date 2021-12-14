@@ -1,13 +1,22 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components";
-import { Cart, Home, Login, ProductDetails, Register, Shipping } from "./pages";
+import {
+  Cart,
+  Home,
+  Login,
+  Payment,
+  ProductDetails,
+  Register,
+  Shipping,
+} from "./pages";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
+          <Route exact path="/payment" element={<Payment />} />
           <Route exact path="/shipping" element={<Shipping />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />

@@ -37,7 +37,7 @@ export default function Header() {
           <>
             <b> | </b>
             <Link to="/" onClick={handleSignout}>
-              Sign out
+              Log out
             </Link>
           </>
         )}
