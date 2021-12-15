@@ -22,7 +22,7 @@ export default function Payment() {
     e.preventDefault();
 
     dispatch(savePaymentMethod(paymentMethod));
-    navigate("/placeorder");
+    navigate("/checkout");
   };
 
   return (

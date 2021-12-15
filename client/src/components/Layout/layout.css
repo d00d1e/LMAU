@@ -7,10 +7,15 @@
     "main"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 3rem 8rem 5rem 2fr 5rem;
+  grid-template-rows: 3rem 8rem 5rem fit-content(100%) 5rem;
+
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
 }
 
 main {
   grid-area: main;
   min-height: 100vh;
+  height: 100%;
 }

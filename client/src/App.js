@@ -6,6 +6,7 @@ import {
   Home,
   Login,
   Payment,
+  Checkout,
   ProductDetails,
   Register,
   Shipping,
@@ -16,6 +17,7 @@ export default function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
+          <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/payment" element={<Payment />} />
           <Route exact path="/shipping" element={<Shipping />} />
           <Route exact path="/register" element={<Register />} />
