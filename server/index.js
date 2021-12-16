@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRouters from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
 import authRouter from "./routers/authRouter.js";
+import orderRouter from "./routers/orderRouter.js";
 
 dotenv.config({ path: "../.env" });
 
@@ -24,6 +25,7 @@ mongoose
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouters);
 app.use("/api/products", productRouter);
+app.use("api/orders", orderRouter);
 
 app.get("/", (req, res) => {
   res.send("lmeow");
