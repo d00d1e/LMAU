@@ -14,22 +14,24 @@ export const generateToken = (user) => {
   );
 };
 
-// AUTHORIZED USERS ONLY
+// AUTHENTICATED USERS ONLY
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
-
   if (authorization) {
-    const token = authorization.slice(7, authorization.length);
-
-    jwt.verify(token, process.env.JWT_SECRET || "secret", (error, decode) => {
-      if (error) {
-        res.status(401).send({ message: "Invalid token" });
+    const token = authorization.slice(7, authorization.length); // Bearer <token>
+    jwt.verify(
+      token,
+      process.env.JWT_SECRET || "thisisasecret",
+      (err, decode) => {
+        if (err) {
+          res.status(401).send({ message: "Invalid Token" });
+        } else {
+          req.user = decode;
+          next();
+        }
       }
-
-      res.user = decode;
-      next();
-    });
+    );
   } else {
-    res.status(401).send({ message: "No token" });
+    res.status(401).send({ message: "No Token" });
   }
 };
