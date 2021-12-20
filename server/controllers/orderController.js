@@ -22,3 +22,14 @@ export const createOrder = expressAsyncHandler(async (req, res) => {
     res.status(201).send({ message: "New order created", order: createdOrder });
   }
 });
+
+// GET ORDER DETAILS
+export const getOrderDetails = expressAsyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
+
+  if (!order) {
+    res.status(404).send({ message: "Order not found" });
+  }
+
+  res.send(order);
+});

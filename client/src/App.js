@@ -11,12 +11,14 @@ import {
   Register,
   Shipping,
 } from "./pages";
+import OrderDetails from "./pages/OrderDetails/OrderDetails";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
+          <Route exact path="/order/:id" element={<OrderDetails />} />
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/payment" element={<Payment />} />
           <Route exact path="/shipping" element={<Shipping />} />

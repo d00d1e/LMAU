@@ -7,9 +7,7 @@ import "./checkout.css";
 import { ORDER_CREATE_RESET } from "../../redux/constants/orderConstants";
 
 export default function Checkout() {
-  const { shippingAddress, paymentMethod, cartItems } = useSelector(
-    (state) => state.cart
-  );
+  const cart = useSelector((state) => state.cart);
   const { loading, success, error, order } = useSelector(
     (state) => state.orderCreate
   );
@@ -17,25 +15,24 @@ export default function Checkout() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  if (!paymentMethod) {
+  if (!cart.paymentMethod) {
     navigate("/payment");
   }
 
-  const numItems = cartItems.reduce((a, c) => a + c.qty, 0);
+  const numItems = cart.cartItems.reduce((a, c) => a + c.qty, 0);
   const toPrice = (num) => Number(num.toFixed(2));
-  cartItems.subtotal = toPrice(
-    cartItems.reduce((a, c) => a + c.qty * c.price, 0)
+  cart.subtotal = toPrice(
+    cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
-  cartItems.shipping = 5.0;
-  cartItems.tax = toPrice(0.05 * cartItems.subtotal);
-  cartItems.total = cartItems.subtotal + cartItems.shipping + cartItems.tax;
+  cart.shipping = toPrice(5);
+  cart.tax = toPrice(0.05 * cart.subtotal);
+  cart.total = cart.subtotal + cart.shipping + cart.tax;
 
   const handleCheckout = () => {
     dispatch(
       createOrder({
-        shippingAddress,
-        paymentMethod,
-        orderItems: cartItems,
+        ...cart,
+        orderItems: cart.cartItems,
       })
     );
   };
@@ -56,20 +53,20 @@ export default function Checkout() {
           <div>
             <h2>Shipping Address</h2>
             <span>
-              {shippingAddress.fullName} <br />
-              {shippingAddress.address} <br />
-              {shippingAddress.city}, {shippingAddress.zipCode} <br />
-              {shippingAddress.country}
+              {cart.shippingAddress.fullName} <br />
+              {cart.shippingAddress.address} <br />
+              {cart.shippingAddress.city}, {cart.shippingAddress.zipCode} <br />
+              {cart.shippingAddress.country}
             </span>
           </div>
           <div>
             <h2>Payment Method</h2>
-            <span>{paymentMethod}</span>
+            <span>{cart.paymentMethod}</span>
           </div>
           <div>
             <h2>Items</h2>
             <div className="items-container">
-              {cartItems.map((i) => (
+              {cart.cartItems.map((i) => (
                 <div key={i.product} className="item">
                   <div>
                     <Link to={`/products/${i.product}`}>
@@ -95,15 +92,15 @@ export default function Checkout() {
         <div className="checkout-total">
           <div className="subtotal">
             <p>SUBTOTAL</p>
-            <p>{cartItems ? `$${cartItems.subtotal.toFixed(2)}` : "$0.00"}</p>
+            <p>{cart.cartItems ? `$${cart.subtotal.toFixed(2)}` : "$0.00"}</p>
           </div>
           <div className="taxes">
             <p>TAXES</p>
-            <p>{numItems ? `$${cartItems.tax.toFixed(2)}` : "--"}</p>
+            <p>{numItems ? `$${cart.tax}` : "--"}</p>
           </div>
           <div className="shipping">
             <p>SHIPPING </p>
-            <p>{numItems ? `$ ${cartItems.shipping.toFixed(2)}` : "--"}</p>
+            <p>{numItems ? `$ ${cart.shipping.toFixed(2)}` : "--"}</p>
           </div>
           <hr />
           <div className="total">
@@ -111,7 +108,7 @@ export default function Checkout() {
             <strong>
               {numItems
                 ? `$
-              ${cartItems.total.toFixed(2)}`
+              ${cart.total}`
                 : "$0.00"}
             </strong>
           </div>
@@ -119,7 +116,7 @@ export default function Checkout() {
             type="button"
             className="block"
             onClick={handleCheckout}
-            disabled={cartItems.length === 0}
+            disabled={cart.cartItems.length === 0}
           >
             PLACE ORDER
           </button>
