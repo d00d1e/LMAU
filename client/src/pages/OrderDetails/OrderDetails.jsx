@@ -3,16 +3,25 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2";
-import { detailsOrder } from "../../redux/actions/orderActions";
+import { detailsOrder, payOrder } from "../../redux/actions/orderActions";
 import "./orderdetails.css";
+import { ORDER_PAY_RESET } from "../../redux/constants/orderConstants";
 
 export default function OrderDetails() {
-  const { id: orderId } = useParams();
-  const { loading, error, order } = useSelector((state) => state.orderDetails);
   const [sdkReady, setSdkReady] = useState(false);
   const dispatch = useDispatch();
+  const { id: orderId } = useParams();
 
-  const handlePaypalSuccess = () => {};
+  const { loading, error, order } = useSelector((state) => state.orderDetails);
+  const {
+    error: errorPay,
+    success: successPay,
+    loading: loadingPay,
+  } = useSelector((state) => state.orderPay);
+
+  const handlePaymentSuccess = (paymentResult) => {
+    dispatch(payOrder(order, paymentResult));
+  };
 
   useEffect(() => {
     const addPayPalScript = async () => {
@@ -29,7 +38,8 @@ export default function OrderDetails() {
       document.body.appendChild(script);
     };
 
-    if (!order || (order && order._id !== orderId)) {
+    if (!order || successPay || (order && order._id !== orderId)) {
+      dispatch({ type: ORDER_PAY_RESET });
       dispatch(detailsOrder(orderId));
     } else {
       if (!order.isPaid) {
@@ -40,7 +50,7 @@ export default function OrderDetails() {
         }
       }
     }
-  }, [dispatch, order, orderId, sdkReady]);
+  }, [dispatch, order, orderId, sdkReady, successPay]);
 
   return loading ? (
     "Loading..."
@@ -60,16 +70,18 @@ export default function OrderDetails() {
               <br />
               {order.shippingAddress.country}
             </span>
-            <div>
+            <p className="error">
               {order.isDelivered
                 ? `Delivered at ${order.deliveredAt}`
                 : "NOT DELIVERED"}
-            </div>
+            </p>
           </div>
           <div>
             <h2>Payment Method</h2>
             <span>{order.paymentMethod}</span>
-            <div>{order.isPaid ? "PAID" : "NOT PAID"}</div>
+            <p className="error">
+              {order.isPaid ? `PAID ${order.paidAt.slice(0, 10)}` : "NOT PAID"}
+            </p>
           </div>
           <div>
             <h2>Items</h2>
@@ -123,10 +135,14 @@ export default function OrderDetails() {
               {!sdkReady ? (
                 "Loading..."
               ) : (
-                <PayPalButton
-                  amount={order.total}
-                  onSuccess={handlePaypalSuccess}
-                ></PayPalButton>
+                <>
+                  {errorPay && { errorPay }}
+                  {loadingPay && "Loading..."}
+                  <PayPalButton
+                    amount={order.total}
+                    onSuccess={handlePaymentSuccess}
+                  ></PayPalButton>
+                </>
               )}
             </div>
           )}
