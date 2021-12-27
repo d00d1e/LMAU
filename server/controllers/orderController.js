@@ -54,3 +54,10 @@ export const payOrder = expressAsyncHandler(async (req, res) => {
     res.status(201).send({ message: "Order paid", updatedOrder });
   }
 });
+
+// GET USER ORDER HSTORY
+export const getOrderHistory = expressAsyncHandler(async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+
+  res.send(orders);
+});

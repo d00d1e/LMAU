@@ -10,14 +10,16 @@ import {
   ProductDetails,
   Register,
   Shipping,
+  OrderHistory,
+  OrderDetails,
 } from "./pages";
-import OrderDetails from "./pages/OrderDetails/OrderDetails";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
+          <Route exact path="/order/history" element={<OrderHistory />} />
           <Route exact path="/order/:id" element={<OrderDetails />} />
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/payment" element={<Payment />} />
