@@ -4,6 +4,7 @@ export { default as Login } from "./Login/Login";
 export { default as OrderDetails } from "./OrderDetails/OrderDetails";
 export { default as OrderHistory } from "./OrderHistory/OrderHistory";
 export { default as Payment } from "./Payment/Payment";
+export { default as Profile } from "./Profile/Profile";
 export { default as Checkout } from "./Checkout/Checkout";
 export { default as ProductDetails } from "./ProductDetails/ProductDetails";
 export { default as Register } from "./Register/Register";

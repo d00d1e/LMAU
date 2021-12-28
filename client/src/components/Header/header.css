@@ -14,13 +14,6 @@ a.brand {
   /* font-family: "Zen Kurenaido", sans-serif; */
 }
 
-.userlinks > a {
-  position: relative;
-  padding: 0 2rem;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-}
-
 .badge {
   position: absolute;
   display: block;
@@ -36,4 +29,46 @@ a.brand {
   line-height: 2rem;
   font-size: 1.4rem;
   font-weight: bold;
+}
+
+.userlinks > a {
+  padding: 0 2rem;
+  font-size: 1.7rem;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0 2rem;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  text-align: center;
+  right: -1.5rem;
+  min-width: 15rem;
+  padding: 0.2rem;
+  z-index: 1;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.dropdown-content > a {
+  padding: 1rem 0;
+}
+
+.dropdown-content a:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:hover .dropdown-content a {
+  display: block;
+  color: #1b352c;
 }

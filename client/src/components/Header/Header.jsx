@@ -23,7 +23,15 @@ export default function Header() {
       </div>
       <div className="userlinks">
         {userInfo ? (
-          <Link to="#">{userInfo.name}</Link>
+          <span className="dropdown">
+            <Link to="#">
+              {userInfo.name} <i className="fas fa-caret-down"></i>
+            </Link>
+            <div className="dropdown-content">
+              <Link to="/profile">Profile</Link>
+              <Link to="/order/history">Orders</Link>
+            </div>
+          </span>
         ) : (
           <Link to="/login">LOG IN</Link>
         )}

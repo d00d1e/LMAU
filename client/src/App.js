@@ -12,6 +12,7 @@ import {
   Shipping,
   OrderHistory,
   OrderDetails,
+  Profile,
 } from "./pages";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
+          <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/order/history" element={<OrderHistory />} />
           <Route exact path="/order/:id" element={<OrderDetails />} />
           <Route exact path="/checkout" element={<Checkout />} />

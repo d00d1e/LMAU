@@ -9,3 +9,14 @@ export const seedUsers = expressAsyncHandler(async (req, res) => {
 
   res.send({ users });
 });
+
+// GET USER
+export const userProfile = expressAsyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    res.status(404).send({ message: "User not found" });
+  }
+
+  res.send(user);
+});
