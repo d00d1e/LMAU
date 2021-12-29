@@ -1,5 +1,6 @@
 import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
+import { generateToken } from "../middlewares/middleware.js";
 import User from "../models/userModel.js";
 
 // SEED USERS
@@ -19,4 +20,28 @@ export const userProfile = expressAsyncHandler(async (req, res) => {
   }
 
   res.send(user);
+});
+
+// UPDATE USER PROFILE
+export const updateUserProfile = expressAsyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+
+    if (req.body.password) {
+      user.password = bcrypt.hashSync(req.body.password, 10);
+    }
+
+    const updatedUser = await user.save();
+
+    res.send({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+      token: generateToken(updatedUser),
+    });
+  }
 });
