@@ -52,12 +52,13 @@ a.brand {
   flex-direction: column;
   display: none;
   text-align: center;
-  right: -1.5rem;
+  right: 2rem;
   min-width: 15rem;
   padding: 0.2rem;
   z-index: 1;
   margin: auto;
   text-transform: uppercase;
+  border: 0.5px solid #eee;
 }
 
 .dropdown-content > a {
@@ -72,4 +73,8 @@ a.brand {
 .dropdown:hover .dropdown-content a {
   display: block;
   color: #1b352c;
+}
+
+.dropdown:hover .dropdown-content a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
