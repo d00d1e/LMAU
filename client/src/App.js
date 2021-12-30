@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout } from "./components";
+import { Layout, PrivateRoute } from "./components";
 import {
   Cart,
   Home,
@@ -20,7 +20,15 @@ export default function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route exact path="/profile" element={<Profile />} />
+          <Route
+            exact
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
           <Route exact path="/order/history" element={<OrderHistory />} />
           <Route exact path="/order/:id" element={<OrderDetails />} />
           <Route exact path="/checkout" element={<Checkout />} />

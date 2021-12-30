@@ -6,6 +6,7 @@ export { default as Layout } from "./Layout/Layout";
 export { default as LoadingBox } from "./LoadingBox/LoadingBox";
 export { default as MessageBox } from "./MessageBox/MessageBox";
 export { default as Navbar } from "./Navbar/Navbar";
+export { default as PrivateRoute } from "./PrivateRoute/PrivateRoute";
 export { default as Product } from "./Product/Product";
 export { default as Products } from "./Products/Products";
 export { default as Rating } from "./Rating/Rating";
