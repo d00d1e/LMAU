@@ -4,8 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2";
 import { detailsOrder, payOrder } from "../../redux/actions/orderActions";
-import "./orderdetails.css";
 import { ORDER_PAY_RESET } from "../../redux/constants/orderConstants";
+import { LoadingBox, MessageBox } from "../../components";
+import "./orderdetails.css";
 
 export default function OrderDetails() {
   const [sdkReady, setSdkReady] = useState(false);
@@ -53,9 +54,9 @@ export default function OrderDetails() {
   }, [dispatch, order, orderId, sdkReady, successPay]);
 
   return loading ? (
-    "Loading..."
+    <LoadingBox />
   ) : error ? (
-    { error }
+    <MessageBox variant="error">{error}</MessageBox>
   ) : (
     <div className="checkout-container">
       <div className="checkout-wrapper">
@@ -133,11 +134,13 @@ export default function OrderDetails() {
           {!order.isPaid && (
             <div>
               {!sdkReady ? (
-                "Loading..."
+                <LoadingBox />
               ) : (
                 <>
-                  {errorPay && { errorPay }}
-                  {loadingPay && "Loading..."}
+                  {errorPay && (
+                    <MessageBox variant="error">{errorPay}</MessageBox>
+                  )}
+                  {loadingPay && <LoadingBox />}
                   <PayPalButton
                     amount={order.total}
                     onSuccess={handlePaymentSuccess}

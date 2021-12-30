@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Product } from "..";
+import { LoadingBox, MessageBox } from "../../components";
 import { listProducts } from "../../redux/actions/productActions";
 import "./products.css";
 
@@ -17,9 +18,9 @@ export default function Products() {
   return (
     <>
       {loading ? (
-        "Loading..."
+        <LoadingBox />
       ) : error ? (
-        "Uh oh.. something went wrong.."
+        <MessageBox variant="error">Uh oh.. something went wrong...</MessageBox>
       ) : (
         <>
           <h1 className="products__header">Shop Products</h1>

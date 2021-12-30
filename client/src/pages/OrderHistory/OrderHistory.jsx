@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { historyOrder } from "../../redux/actions/orderActions";
+import { LoadingBox, MessageBox } from "../../components";
 import "./orderhistory.css";
 
 export default function OrderHistory() {
@@ -17,9 +18,9 @@ export default function OrderHistory() {
     <div className="order-history-container">
       <h1>Order History</h1>
       {loading ? (
-        "Loading..."
+        <LoadingBox />
       ) : error ? (
-        { error }
+        <MessageBox variant="error">{error}</MessageBox>
       ) : (
         <table className="table">
           <thead>

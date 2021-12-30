@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { CheckoutSteps } from "../../components";
+import { CheckoutSteps, LoadingBox, MessageBox } from "../../components";
 import { createOrder } from "../../redux/actions/orderActions";
 import "./checkout.css";
 import { ORDER_CREATE_RESET } from "../../redux/constants/orderConstants";
@@ -121,8 +121,8 @@ export default function Checkout() {
             PLACE ORDER
           </button>
 
-          {loading && "Loading..."}
-          {error && <span>{error}</span>}
+          {loading && <LoadingBox />}
+          {error && <MessageBox variant="error">{error}</MessageBox>}
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { Rating } from "../../components";
+import { LoadingBox, MessageBox, Rating } from "../../components";
 import { detailsProduct } from "../../redux/actions/productActions";
 import "./productdetails.css";
 
@@ -26,9 +26,9 @@ export default function ProductDetails() {
   return (
     <>
       {loading ? (
-        "Loading..."
+        <LoadingBox />
       ) : error ? (
-        "Uh oh.. something went wrong.."
+        <MessageBox variant="error">Uh oh.. something went wrong...</MessageBox>
       ) : (
         <div className="details__container">
           <div className="details__heading">

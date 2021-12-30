@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { LoadingBox, MessageBox } from "../../components";
 import {
   detailsUser,
   updateUserProfile,
@@ -48,14 +49,18 @@ export default function Profile() {
         <form className="profile-form" onSubmit={handleSubmit}>
           <h1>PROFILE</h1>
           {loading ? (
-            "Loading..."
+            <LoadingBox />
           ) : error ? (
-            { error }
+            <MessageBox variant="error">{error}</MessageBox>
           ) : (
             <>
-              {loadingUpdate && "Loading..."}
-              {errorUpdate && { error }}
-              {successUpdate && "Profile updated successfully!"}
+              {loadingUpdate && <LoadingBox />}
+              {errorUpdate && <MessageBox variant="error">{error}</MessageBox>}
+              {successUpdate && (
+                <MessageBox variant="success">
+                  Profile updated successfully!
+                </MessageBox>
+              )}
               <label htmlFor="name">Name</label>
               <input
                 type="text"

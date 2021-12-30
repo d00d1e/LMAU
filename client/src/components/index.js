@@ -3,6 +3,8 @@ export { default as CheckoutSteps } from "./CheckoutSteps/CheckoutSteps";
 export { default as Footer } from "./Footer/Footer";
 export { default as Header } from "./Header/Header";
 export { default as Layout } from "./Layout/Layout";
+export { default as LoadingBox } from "./LoadingBox/LoadingBox";
+export { default as MessageBox } from "./MessageBox/MessageBox";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as Product } from "./Product/Product";
 export { default as Products } from "./Products/Products";

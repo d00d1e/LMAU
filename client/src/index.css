@@ -149,6 +149,30 @@ button.small {
   font-size: 1.2rem;
 }
 
+/* LOADING & MESSAGE BOX */
+.loading {
+  display: block !important;
+  text-align: center;
+}
+
+.alert {
+  display: block !important;
+  text-align: center;
+  padding: 1rem;
+}
+
+.alert-info {
+  color: #2020a0;
+}
+
+.alert-error {
+  color: #a02020;
+}
+
+.alert-success {
+  color: green;
+}
+
 /* CLASSES */
 .row {
   display: flex;
