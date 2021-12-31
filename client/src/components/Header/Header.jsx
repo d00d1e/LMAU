@@ -28,8 +28,18 @@ export default function Header() {
               {userInfo.name} <i className="fas fa-caret-down"></i>
             </Link>
             <div className="dropdown-content">
-              <Link to="/profile">Profile</Link>
-              <Link to="/order/history">Orders</Link>
+              {userInfo.isAdmin ? (
+                <>
+                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/orderlist">Order History</Link>
+                  <Link to="/productlist">Products</Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/profile">Profile</Link>
+                  <Link to="/order/history">Orders</Link>
+                </>
+              )}
             </div>
           </span>
         ) : (

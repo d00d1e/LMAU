@@ -81,14 +81,12 @@ export default function Profile() {
               <input
                 type="password"
                 id="password"
-                placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
               <label htmlFor="confirmPassword">Confirm Password</label>
               <input
                 type="confirmPassword"
                 id="confirmPassword"
-                placeholder="confirmPassword"
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <button className="center" type="submit">
